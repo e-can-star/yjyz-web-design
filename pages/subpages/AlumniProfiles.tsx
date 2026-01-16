@@ -9,7 +9,7 @@ const alumniData = [
     tag: '学术泰斗',
     tagStyle: 'bg-[#028d6a] text-white',
     desc: '中国科学院院士，著名大气科学家，2019年度国家最高科学技术奖获得者。在大气动力学、地球流体力学等领域作出划时代贡献。',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuByx9tmJo1Ptpf6KB8bB2ejH26bajFCqOUcluBc486jAJX4QbnmXKPQk1UCD_2irF9ZwdledJaet-2VgiYlvGJgx9tQBEdfN2l5pEFHrQuWSDv6M5GZ_HVY4-N-H673oG3KI5Z3n7VehvRChHrIm8FPy__lnWOrF5qFJvJ8qJMH-r79ADKl3P3-WdpE2wKcPkvFaljcUicQF4ScSYg3-JswtDsefNSX4icS20HM4ou2vUmSPGlF85EL0hHItKovtNoONoGri8nt9i68'
+    img: '../../images/zenqincun.png'
   },
   {
     id: 2,

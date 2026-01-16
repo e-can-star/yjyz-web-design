@@ -15,10 +15,10 @@ export const Introduction: React.FC = () => {
         {/* Hero Image */}
         <div className="p-3 pb-0">
           <div className="rounded-lg overflow-hidden relative aspect-[21/9]">
-            <img 
-              alt="阳江一中校园全景" 
-              className="w-full h-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuByx9tmJo1Ptpf6KB8bB2ejH26bajFCqOUcluBc486jAJX4QbnmXKPQk1UCD_2irF9ZwdledJaet-2VgiYlvGJgx9tQBEdfN2l5pEFHrQuWSDv6M5GZ_HVY4-N-H673oG3KI5Z3n7VehvRChHrIm8FPy__lnWOrF5qFJvJ8qJMH-r79ADKl3P3-WdpE2wKcPkvFaljcUicQF4ScSYg3-JswtDsefNSX4icS20HM4ou2vUmSPGlF85EL0hHItKovtNoONoGri8nt9i68"
+            <img
+              alt="阳江一中校园全景"
+              className="w-full h-full object-cover"
+              src="../../images/banner-1.jpg"
             />
           </div>
         </div>
@@ -33,20 +33,20 @@ export const Introduction: React.FC = () => {
               跨越百年沧桑，阳江一中始终秉承“崇德、博学、求实、创新”的校训。近年来，学校迎来了新一轮的跨越式发展，2021年至2024年间，校园进行了大规模的设施升级改造，新建了高标准数字化实验楼、多功能艺术体育馆以及现代化学生公寓，教学环境焕然一新，全面迈入智慧校园新时代。
             </p>
           </div>
-          
+
           {/* Stats Card */}
           <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 py-10 px-6 mb-16">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-x-0 md:divide-x divide-slate-100">
               {[
-                {val: '116', label: '载办学历史'},
-                {val: '26.9万', label: '占地面积(M²)'},
-                {val: '60+', label: '高中教学班'},
-                {val: '92.6%', label: '本科上线率'}
+                { val: '116', label: '载办学历史' },
+                { val: '26.9万', label: '占地面积(M²)' },
+                { val: '60+', label: '高中教学班' },
+                { val: '92.6%', label: '本科上线率' }
               ].map((item, i) => (
-                 <div key={i} className="text-center flex flex-col items-center justify-center p-2">
-                    <div className="text-3xl lg:text-4xl font-black text-forest mb-3 tracking-tight">{item.val}</div>
-                    <div className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">{item.label}</div>
-                 </div>
+                <div key={i} className="text-center flex flex-col items-center justify-center p-2">
+                  <div className="text-3xl lg:text-4xl font-black text-forest mb-3 tracking-tight">{item.val}</div>
+                  <div className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">{item.label}</div>
+                </div>
               ))}
             </div>
           </div>
@@ -78,11 +78,11 @@ export const Introduction: React.FC = () => {
 
           {/* Bottom Image */}
           <div className="rounded-xl overflow-hidden mb-8 shadow-md">
-             <img 
-               src="https://lh3.googleusercontent.com/aida-public/AB6AXuByx9tmJo1Ptpf6KB8bB2ejH26bajFCqOUcluBc486jAJX4QbnmXKPQk1UCD_2irF9ZwdledJaet-2VgiYlvGJgx9tQBEdfN2l5pEFHrQuWSDv6M5GZ_HVY4-N-H673oG3KI5Z3n7VehvRChHrIm8FPy__lnWOrF5qFJvJ8qJMH-r79ADKl3P3-WdpE2wKcPkvFaljcUicQF4ScSYg3-JswtDsefNSX4icS20HM4ou2vUmSPGlF85EL0hHItKovtNoONoGri8nt9i68" 
-               alt="Campus Building" 
-               className="w-full h-64 lg:h-80 object-cover"
-             />
+            <img
+              src="../../images/校园俯瞰图.jpg"
+              alt="Campus Building"
+              className="w-full h-64 lg:h-80 object-cover"
+            />
           </div>
 
           {/* Footer Text */}

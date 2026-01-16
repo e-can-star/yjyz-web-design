@@ -10,7 +10,7 @@ export const Video: React.FC = () => {
       </header>
 
       <div className="relative group cursor-pointer overflow-hidden rounded-[12px] aspect-video shadow-2xl bg-slate-900">
-        <img alt="宣传片封面" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI-WKvXdoF_NPpPXXZzWrlSTLPinYNVSuPaV5DOgIvdqME1vIMa7KuiWIQotFPU-ynUmwaTYkNCOuRNCB3YFzvZjA1DsfpAkGgAQh-bUmzMhuQ4WUqzMIAV8xzeCDWuAZB2fYMOYRh4RD7MQmRWd0ftAPlzo172rzp6-teamB28U9MW8t6XZd4UI9gbE4lxJA7vfFHbxALmo2gy2S4Kmqjnw0AqkwFAz-WcOg196T0uNyk6TdS8r21G-PM3IiiUXLEcIgaR2NyRX7W"/>
+        <img alt="宣传片封面" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" src="../../images/xuanchuanpianfengmian.jpg"/>
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-20 h-20 bg-forest flex items-center justify-center rounded-full shadow-2xl transition-transform duration-300 group-hover:scale-110 active:scale-95">

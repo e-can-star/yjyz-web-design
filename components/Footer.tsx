@@ -21,16 +21,16 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold mb-6 text-base tracking-wide border-l-4 border-forest pl-3">快速链接</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-white transition-colors flex items-center gap-2 hover:translate-x-1 duration-300">中华人民共和国教育部</a></li>
-              <li><a href="#" className="hover:text-white transition-colors flex items-center gap-2 hover:translate-x-1 duration-300">广东省教育厅</a></li>
-              <li><a href="#" className="hover:text-white transition-colors flex items-center gap-2 hover:translate-x-1 duration-300">阳江市教育局</a></li>
+              <li><a href="http://www.moe.gov.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2 hover:translate-x-1 duration-300">中华人民共和国教育部</a></li>
+              <li><a href="http://edu.gd.gov.cn/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2 hover:translate-x-1 duration-300">广东省教育厅</a></li>
+              <li><a href="http://www.yangjiang.gov.cn/yjjyj/gkmlpt/index" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2 hover:translate-x-1 duration-300">阳江市教育局</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-white font-bold mb-6 text-base tracking-wide border-l-4 border-forest pl-3">公众号订阅</h4>
             <div className="flex items-center gap-6">
               <div className="w-20 h-20 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 p-2 group hover:bg-white/10 transition-colors cursor-pointer">
-                <span className="material-symbols-outlined text-4xl text-white/20 group-hover:text-white/80 transition-colors">qr_code_2</span>
+                <img src="../images/erweima.jpg" alt="微信公众号二维码" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col gap-1">
                 <p className="text-xs font-bold text-white uppercase tracking-widest">Official WeChat</p>

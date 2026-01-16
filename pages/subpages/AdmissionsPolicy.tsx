@@ -75,39 +75,39 @@ export const AdmissionsPolicy: React.FC = () => {
       {/* List Content */}
       <div className="flex flex-col gap-6">
         {policies.map((item) => (
-          <div 
+          <div
             key={item.id}
             className="group bg-white rounded-xl p-6 lg:p-8 border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col md:flex-row gap-6 items-start md:items-center"
           >
             {/* Date Box */}
             <div className="flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-[#EFF5F3] rounded-xl flex flex-col items-center justify-center border border-forest/10 group-hover:bg-forest group-hover:border-forest transition-colors duration-300">
-               <span className="text-xl md:text-2xl font-black text-forest group-hover:text-white transition-colors">{item.day}</span>
-               <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-slate-400 group-hover:text-white/80 transition-colors">{item.month}</span>
+              <span className="text-xl md:text-2xl font-black text-forest group-hover:text-white transition-colors">{item.day}</span>
+              <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-slate-400 group-hover:text-white/80 transition-colors">{item.month}</span>
             </div>
 
             {/* Content */}
             <div className="flex-grow min-w-0">
-               <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 group-hover:text-forest transition-colors line-clamp-2">
-                 {item.title}
-               </h3>
-               <div className="flex items-center gap-6 text-slate-400 text-sm font-medium">
-                  <div className="flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-[18px]">calendar_today</span>
-                    {item.date}
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="material-symbols-outlined text-[18px]">visibility</span>
-                    {item.views} 阅读
-                  </div>
-               </div>
+              <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-3 group-hover:text-forest transition-colors line-clamp-2">
+                {item.title}
+              </h3>
+              <div className="flex items-center gap-6 text-slate-400 text-sm font-medium">
+                <div className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[18px]">calendar_today</span>
+                  {item.date}
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[18px]">visibility</span>
+                  {item.views} 阅读
+                </div>
+              </div>
             </div>
 
             {/* Action Button */}
             <div className="flex-shrink-0 mt-2 md:mt-0">
-               <div className="px-5 py-2 bg-[#F8FAFC] rounded-full text-sm font-bold text-slate-600 group-hover:bg-forest group-hover:text-white transition-all flex items-center gap-2">
-                 查看详情
-                 <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
-               </div>
+              <div className="px-5 py-2 bg-[#F8FAFC] rounded-full text-sm font-bold text-slate-600 group-hover:bg-forest group-hover:text-white transition-all flex items-center gap-2">
+                查看详情
+                <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+              </div>
             </div>
           </div>
         ))}
@@ -115,28 +115,28 @@ export const AdmissionsPolicy: React.FC = () => {
 
       {/* Pagination */}
       <div className="flex justify-center items-center gap-2 pt-4 select-none">
-        <button 
+        <button
           onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
           className="w-10 h-10 rounded-lg border border-slate-200 flex items-center justify-center text-slate-500 hover:border-forest hover:text-forest hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-white"
           disabled={currentPage === 1}
         >
           <span className="material-symbols-outlined text-sm">chevron_left</span>
         </button>
-        
+
         {[1, 2, 3].map((page) => (
-             <button 
-               key={page}
-               onClick={() => setCurrentPage(page)}
-               className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-[15px] transition-all duration-300
+          <button
+            key={page}
+            onClick={() => setCurrentPage(page)}
+            className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-[15px] transition-all duration-300
                  ${currentPage === page
-                   ? 'bg-forest text-white shadow-md shadow-forest/30 border border-transparent' 
-                   : 'bg-white border border-slate-200 text-slate-600 hover:border-forest hover:text-forest hover:bg-forest/5'}`}
-             >
-               {page}
-             </button>
+                ? 'bg-forest text-white shadow-md shadow-forest/30 border border-transparent'
+                : 'bg-white border border-slate-200 text-slate-600 hover:border-forest hover:text-forest hover:bg-forest/5'}`}
+          >
+            {page}
+          </button>
         ))}
 
-        <button 
+        <button
           onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
           className="w-10 h-10 rounded-lg border border-slate-200 flex items-center justify-center text-slate-500 hover:border-forest hover:text-forest hover:bg-white transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-white"
           disabled={currentPage === totalPages}

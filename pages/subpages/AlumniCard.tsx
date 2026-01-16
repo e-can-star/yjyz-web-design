@@ -4,7 +4,7 @@ export const AlumniCard: React.FC = () => {
   const [isZoomed, setIsZoomed] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
 
-  const qrImage = "https://lh3.googleusercontent.com/aida-public/AB6AXuAwwtP5j53CGBARsm_5mcPDnQnxW4xUAqHPEtbYUE58W94wTO0x4risoGtqTrHbowqzz3yXwQFmyD6FCwogSvIz0-kjTJFUGXmSiqK0ZAFujnix8p92DkOVpAs37YwUgEbf3Vgn-ewtMg_GRwyiroGom_451e15gtkv79HZKduakat7As0eQfZyEpiJ7D1cwzFaX7dTktE_HRMi6ZnirCrzNxUwEgAoTv4kT5s29zU_qq9zJeGiWuhwlRVkJXLdEwMIgSIb5kfwO-0E";
+  const qrImage = "../../images/xiaoyouka.jpg";
 
   const handleSave = () => {
     setIsSaving(true);

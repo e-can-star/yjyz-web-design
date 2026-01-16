@@ -22,7 +22,7 @@ const newsData = [
     date: '2022-12-16',
     title: '【特别鸣谢】阳江市第一中学教育发展基金会 2021-2022年度捐赠鸣谢名单',
     desc: '感谢每一位校友的慷慨解囊，正是您的点滴关怀汇聚成了支持母校发展的磅礴力量。现将本年度捐赠名单予以公示。',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDI-WKvXdoF_NPpPXXZzWrlSTLPinYNVSuPaV5DOgIvdqME1vIMa7KuiWIQotFPU-ynUmwaTYkNCOuRNCB3YFzvZjA1DsfpAkGgAQh-bUmzMhuQ4WUqzMIAV8xzeCDWuAZB2fYMOYRh4RD7MQmRWd0ftAPlzo172rzp6-teamB28U9MW8t6XZd4UI9gbE4lxJA7vfFHbxALmo2gy2S4Kmqjnw0AqkwFAz-WcOg196T0uNyk6TdS8r21G-PM3IiiUXLEcIgaR2NyRX7W'
+    img: '../../images/jijin-1.jpg'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const newsData = [
     date: '2021-09-15',
     title: '阳江市第一中学教育发展基金会召开理事监事（扩大）会议',
     desc: '会议审议了基金会上半年度财务报告及项目进展，探讨了下一阶段在奖教奖学、困难帮扶等方面的重点工作方向。',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC4zblejk4vtXhpJLr03ALBvqHP4aFCFKX9Mw7ysOTfwqpn5XABM9TfUJPjjD1Kkhh9gBsOBu7R67v2UIvYSFfDmPLWSyZnGzx9LYMXitXO9mhtHDVOoKCKh7w2fgC1qufU5j-AvWKaU7-hFbHWzSHufihsgbsej9HDaieCRtiovcIL-OyNlRGf7Hfk1S7dsZoI51nbbAggg6bJSdC5wiUr8ukDuKQvsAMUqgdNnl-StYV5GQvfP99mNmZjirQDzMpAhfB7svasLUPT'
+    img: '../../images/jijin-3.jpg'
   },
   {
     id: 4,
@@ -38,7 +38,7 @@ const newsData = [
     date: '2021-08-31',
     title: '帮人一把，送人一程——阳江市第一中学教育发展基金会2021年大一新生助学金发放仪式',
     desc: '为助力家庭经济困难的优秀毕业生顺利开启大学生活，基金会举行了隆重的助学金发放仪式，传递母校温暖。',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAwwtP5j53CGBARsm_5mcPDnQnxW4xUAqHPEtbYUE58W94wTO0x4risoGtqTrHbowqzz3yXwQFmyD6FCwogSvIz0-kjTJFUGXmSiqK0ZAFujnix8p92DkOVpAs37YwUgEbf3Vgn-ewtMg_GRwyiroGom_451e15gtkv79HZKduakat7As0eQfZyEpiJ7D1cwzFaX7dTktE_HRMi6ZnirCrzNxUwEgAoTv4kT5s29zU_qq9zJeGiWuhwlRVkJXLdEwMIgSIb5kfwO-0E'
+    img: '../../images/jijin-4.jpg'
   },
   {
     id: 5,
@@ -46,7 +46,7 @@ const newsData = [
     date: '2017-11-22',
     title: '阳江市第一中学教育发展基金会获得2016年阳江市公益性捐赠税前扣除资格',
     desc: '根据相关法律法规，基金会正式取得税前扣除资格，将为捐赠校友及企业提供更完善的公益回报保障。',
-    img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCo2QMjj3X7PiTNUXRdNERhh_UVb3YJh7fMbeRR2XhAoozDUUICGIXx-RN0M5h9aZdxsZz75rZ5RRWF9PVh9Gt9aczEvAk9Xe3wYNG80FqGUQcN0qvJirSoX5RnWcQVALKkkgdfNVqmSVbI-lPOMqCvSN_hRb2uHAyFcnAVQwVUETJemyzPJh4pwsPUrC-0NFMeUhNhE4xnjN-oUkDFKBEE9LD3OC5EnD_XmgBxBALmj6qlfxq_g6laBN56W8HL6CRcfb5OS82zjlzl'
+    img: '../../images/jijin-5.jpg'
   },
 ];
 

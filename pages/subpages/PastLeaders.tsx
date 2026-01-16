@@ -23,9 +23,9 @@ export const PastLeaders: React.FC = () => {
   }
 
   const notableLeaders = [
-    { name: '梁启亮校长', icon: 'person', style: 'opacity-20' },
-    { name: '张奋忠校长', icon: 'spa', style: 'opacity-30' },
-    { name: '陈恕校长', icon: 'school', style: 'opacity-20' }
+    { name: '梁启亮校长', img: '../../images/梁启亮校长.jpg' },
+    { name: '张奋忠校长', img: '../../images/张奋忠校长.jpg' },
+    { name: '陈恕校长', img: '../../images/chenshu.png' }
   ];
 
   return (
@@ -41,56 +41,66 @@ export const PastLeaders: React.FC = () => {
       <div className="w-full rounded-lg overflow-hidden border border-slate-200 shadow-sm mb-20">
         {/* Table Header */}
         <div className="grid grid-cols-4 bg-[#014d3a] text-white font-bold text-center py-5 text-sm md:text-base tracking-wide">
-             <div className="border-r border-white/10">姓名</div>
-             <div className="border-r border-white/10 md:border-r-0">任职时间</div>
-             <div className="hidden md:block border-r border-white/10">姓名</div>
-             <div className="hidden md:block">任职时间</div>
+          <div className="border-r border-white/10">姓名</div>
+          <div className="border-r border-white/10 md:border-r-0">任职时间</div>
+          <div className="hidden md:block border-r border-white/10">姓名</div>
+          <div className="hidden md:block">任职时间</div>
         </div>
-        
+
         {/* Table Body */}
         {rows.map((row, index) => (
           <React.Fragment key={index}>
-             {/* Desktop View: Single row with 4 columns */}
-             <div className={`hidden md:grid grid-cols-4 text-center items-center text-slate-700 font-medium ${index % 2 === 0 ? 'bg-white' : 'bg-[#F8FAFC]'}`}>
-                <div className="py-5 border-r border-slate-100/50">{row[0].name}</div>
-                <div className="py-5 text-slate-500 border-r border-slate-100/50">{row[0].term}</div>
-                <div className="py-5 border-r border-slate-100/50">{row[1]?.name || ''}</div>
-                <div className="py-5 text-slate-500">{row[1]?.term || ''}</div>
-             </div>
+            {/* Desktop View: Single row with 4 columns */}
+            <div className={`hidden md:grid grid-cols-4 text-center items-center text-slate-700 font-medium ${index % 2 === 0 ? 'bg-white' : 'bg-[#F8FAFC]'}`}>
+              <div className="py-5 border-r border-slate-100/50">{row[0].name}</div>
+              <div className="py-5 text-slate-500 border-r border-slate-100/50">{row[0].term}</div>
+              <div className="py-5 border-r border-slate-100/50">{row[1]?.name || ''}</div>
+              <div className="py-5 text-slate-500">{row[1]?.term || ''}</div>
+            </div>
 
-             {/* Mobile View: Stacked rows (2 columns) */}
-             <div className="md:hidden">
+            {/* Mobile View: Stacked rows (2 columns) */}
+            <div className="md:hidden">
+              <div className={`grid grid-cols-2 text-center py-4 border-b border-slate-100 ${index % 2 === 0 ? 'bg-white' : 'bg-[#F8FAFC]'}`}>
+                <div className="font-bold text-slate-800">{row[0].name}</div>
+                <div className="text-slate-500 text-sm">{row[0].term}</div>
+              </div>
+              {row[1] && (
                 <div className={`grid grid-cols-2 text-center py-4 border-b border-slate-100 ${index % 2 === 0 ? 'bg-white' : 'bg-[#F8FAFC]'}`}>
-                  <div className="font-bold text-slate-800">{row[0].name}</div>
-                  <div className="text-slate-500 text-sm">{row[0].term}</div>
+                  <div className="font-bold text-slate-800">{row[1].name}</div>
+                  <div className="text-slate-500 text-sm">{row[1].term}</div>
                 </div>
-                {row[1] && (
-                  <div className={`grid grid-cols-2 text-center py-4 border-b border-slate-100 ${index % 2 === 0 ? 'bg-white' : 'bg-[#F8FAFC]'}`}>
-                    <div className="font-bold text-slate-800">{row[1].name}</div>
-                    <div className="text-slate-500 text-sm">{row[1].term}</div>
-                  </div>
-                )}
-             </div>
+              )}
+            </div>
           </React.Fragment>
         ))}
       </div>
 
       {/* Notable Leaders Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-         {notableLeaders.map((leader, i) => (
-           <div key={i} className="flex flex-col group cursor-pointer">
-             <div className="bg-[#f9fafb] aspect-[3/4] rounded-t-xl flex items-center justify-center border border-slate-100 border-b-0 overflow-hidden relative">
-                {/* Placeholder Art Style */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent opacity-60"></div>
-                <span className={`material-symbols-outlined text-[80px] text-slate-400 group-hover:scale-110 transition-transform duration-500 ${leader.style}`}>
-                  {leader.icon}
-                </span>
-             </div>
-             <div className="bg-[#026c52] text-white py-4 text-center font-bold text-lg rounded-b-xl shadow-md transition-colors group-hover:bg-[#014d3a]">
-               {leader.name}
-             </div>
-           </div>
-         ))}
+        {notableLeaders.map((leader, i) => (
+          <div key={i} className="flex flex-col group cursor-pointer">
+            <div className="bg-[#f9fafb] aspect-[3/4] rounded-t-xl border border-slate-100 border-b-0 overflow-hidden relative">
+              {leader.img ? (
+                <img
+                  src={leader.img}
+                  alt={leader.name}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              ) : (
+                // Fallback to icon if no image provided
+                <>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent opacity-60"></div>
+                  <span className={`material-symbols-outlined text-[80px] text-slate-400 group-hover:scale-110 transition-transform duration-500 ${leader.style}`}>
+                    {leader.icon}
+                  </span>
+                </>
+              )}
+            </div>
+            <div className="bg-[#026c52] text-white py-4 text-center font-bold text-lg rounded-b-xl shadow-md transition-colors group-hover:bg-[#014d3a]">
+              {leader.name}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
