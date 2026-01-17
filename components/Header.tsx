@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
+
+const { Link, useLocation, useNavigate } = ReactRouterDOM as any;
 
 interface HeaderProps {
   onOpenAuth: () => void;
@@ -15,8 +17,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
 
   const navLinks = [
     { label: '首页', path: '/' },
-    {
-      label: '走进一中',
+    { 
+      label: '走进一中', 
       path: '/profile',
       subItems: [
         { label: '一中简介', path: '/profile/intro' },
@@ -28,16 +30,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
         { label: '学校宣传片', path: '/profile/video' },
       ]
     },
-    {
-      label: '党建引领',
+    { 
+      label: '党建引领', 
       path: '/party',
       subItems: [
         { label: '党建动态', path: '/party/news' },
         { label: '组织架构', path: '/party/structure' },
       ]
     },
-    {
-      label: '教学教研',
+    { 
+      label: '教学教研', 
       path: '/teaching',
       subItems: [
         { label: '教研动态', path: '/teaching/news' },
@@ -45,8 +47,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
         { label: '教研成果展', path: '/teaching/achievements' },
       ]
     },
-    {
-      label: '校园活动',
+    { 
+      label: '校园活动', 
       path: '/activities',
       subItems: [
         { label: '一中大讲坛', path: '/activities/lecture' },
@@ -57,16 +59,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
         { label: '校运会', path: '/activities/sports-meeting' },
       ]
     },
-    {
-      label: '招生招聘',
+    { 
+      label: '招生招聘', 
       path: '/admissions',
       subItems: [
-        { label: '招生专栏', path: '/admissions/policy' },
-        { label: '教师招聘', path: '/admissions/careers' },
+         { label: '招生专栏', path: '/admissions/policy' },
+         { label: '教师招聘', path: '/admissions/careers' },
       ]
     },
-    {
-      label: '校友之窗',
+    { 
+      label: '校友之窗', 
       path: '/alumni',
       subItems: [
         { label: '基金会', path: '/alumni/foundation' },
@@ -75,7 +77,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
         { label: '校友卡', path: '/alumni/card' },
       ]
     },
-    { label: '教育集团', path: '/group' },
+    { 
+      label: '教育集团', 
+      path: '/group',
+      subItems: [
+        { label: '集团概况', path: '/group' },
+        { label: '漠南中学', path: '/group/monan' },
+        { label: '一中实验学校', path: '/group/experimental' },
+      ]
+    },
   ];
 
   // Close dropdowns when clicking outside
@@ -107,15 +117,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 frosted-glass shadow-sm transition-all duration-300">
+    <header id="main-header" className="fixed top-0 left-0 right-0 z-50 frosted-glass shadow-sm transition-all duration-300">
       <div className="max-w-[1440px] mx-auto px-4 lg:px-8 py-3 lg:py-4 flex items-center justify-between">
         {/* Logo Area */}
         <Link to="/" className="flex items-center gap-4 group">
-          <img
-            src="/images/logo3.png"
-            alt="阳江一中"
-            className="h-18 w-auto lg:h-20 transition-transform group-hover:scale-105"
-          />
+          <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/10 rounded-[12px] flex items-center justify-center border border-white/20 transition-transform group-hover:scale-105">
+            <span className="material-symbols-outlined text-white text-2xl lg:text-3xl">school</span>
+          </div>
+          <div className="flex flex-col">
+            <h1 className="text-xl lg:text-2xl font-black tracking-tight text-white leading-tight">阳江一中</h1>
+            <p className="text-[10px] text-white/60 font-medium tracking-widest uppercase hidden sm:block">Yangjiang No.1 Middle School</p>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -126,11 +138,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
 
             return (
               <div key={item.label} className="relative nav-item-group px-1">
-                <button
+                <button 
                   onClick={(e) => handleNavClick(e, item)}
                   className={`px-3 py-2 text-[15px] font-semibold transition-all cursor-pointer whitespace-nowrap flex items-center gap-1 bg-transparent border-none
                     ${isActive || isDropdownOpen
-                      ? 'text-white'
+                      ? 'text-white' 
                       : 'text-white/80 hover:text-white'}`}
                 >
                   {item.label}
@@ -139,7 +151,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
                     <span className="material-symbols-outlined text-sm animate-[fadeIn_0.2s_ease-out]">expand_more</span>
                   )}
                 </button>
-
+                
                 {/* Dropdown */}
                 {item.subItems && isDropdownOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 animate-[fadeInUp_0.2s_ease-out] w-48 z-50">
@@ -164,19 +176,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
 
         {/* Auth Button */}
         <div className="flex items-center gap-4">
-          <button
+          <button 
             onClick={onOpenAuth}
             className={`px-6 py-2.5 rounded-full text-[15px] font-bold transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm
-              ${isLoggedIn
-                ? 'bg-deep-forest text-white ring-2 ring-white/20'
+              ${isLoggedIn 
+                ? 'bg-deep-forest text-white ring-2 ring-white/20' 
                 : 'bg-white text-deep-forest hover:bg-warm-white'}`}
           >
             <span className="material-symbols-outlined text-[22px] font-medium">account_circle</span>
             {isLoggedIn ? username || '已登录' : '注册/登录'}
           </button>
-
+          
           {/* Mobile Menu Button */}
-          <button
+          <button 
             className="xl:hidden text-white p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -190,9 +202,9 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="xl:hidden absolute top-full left-0 right-0 bg-deep-forest border-t border-white/10 p-4 shadow-xl max-h-[80vh] overflow-y-auto">
-          {navLinks.map((item) => (
+           {navLinks.map((item) => (
             <div key={item.label} className="border-b border-white/5 py-2">
-              <button
+               <button 
                 onClick={(e) => {
                   if (item.subItems) {
                     setActiveDropdown(activeDropdown === item.label ? null : item.label);
@@ -205,17 +217,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
               >
                 {item.label}
                 {item.subItems && (
-                  <span className={`material-symbols-outlined transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180' : ''}`}>expand_more</span>
+                   <span className={`material-symbols-outlined transition-transform duration-300 ${activeDropdown === item.label ? 'rotate-180' : ''}`}>expand_more</span>
                 )}
               </button>
-
+              
               {/* Mobile Submenu */}
               {item.subItems && activeDropdown === item.label && (
                 <div className="pl-4 flex flex-col gap-2 mt-1 pb-2 animate-[fadeIn_0.3s]">
                   {item.subItems.map(sub => (
-                    <Link
-                      key={sub.label}
-                      to={sub.path}
+                    <Link 
+                      key={sub.label} 
+                      to={sub.path} 
                       className="text-white/70 text-sm py-1 block"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -225,7 +237,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenAuth, isLoggedIn, username
                 </div>
               )}
             </div>
-          ))}
+           ))}
         </div>
       )}
     </header>

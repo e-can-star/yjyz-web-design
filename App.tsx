@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { AuthModal } from './components/AuthModal';
 import { Home } from './pages/Home';
-import { Group } from './pages/Group'; // 引入 Group 页面组件
+import { Group } from './pages/Group';
+import { GroupLanding } from './pages/subpages/GroupLanding';
+import { Monan } from './pages/subpages/Monan';
+import { Experimental } from './pages/subpages/Experimental';
 import { ProfileLayout } from './pages/ProfileLayout';
 import { PartyLayout } from './pages/PartyLayout';
 import { ActivitiesLayout } from './pages/ActivitiesLayout';
@@ -28,6 +31,14 @@ import { AdmissionsPolicy } from './pages/subpages/AdmissionsPolicy';
 import { TeachingNews } from './pages/subpages/TeachingNews';
 import { TeachingArticle } from './pages/subpages/TeachingArticle';
 import { Lecture } from './pages/subpages/Lecture';
+import { Careers } from './pages/subpages/Careers';
+import { ComingOfAge } from './pages/subpages/ComingOfAge';
+import { MayFourth } from './pages/subpages/MayFourth';
+import { CharitySale } from './pages/subpages/CharitySale';
+import { SportsMeeting } from './pages/subpages/SportsMeeting';
+import { Anniversary } from './pages/subpages/Anniversary';
+
+const { HashRouter, Routes, Route, Navigate } = ReactRouterDOM as any;
 
 // Placeholder components for other routes
 const Placeholder = ({ title }: { title: string }) => (
@@ -109,18 +120,18 @@ function App() {
             <Route path="/activities" element={<ActivitiesLayout />}>
               <Route index element={<Navigate to="lecture" replace />} />
               <Route path="lecture" element={<Lecture />} />
-              <Route path="anniversary" element={<Placeholder title="校庆活动" />} />
-              <Route path="coming-of-age" element={<Placeholder title="成人礼" />} />
-              <Route path="charity-sale" element={<Placeholder title="三五义卖" />} />
-              <Route path="may-fourth" element={<Placeholder title="五四合唱" />} />
-              <Route path="sports-meeting" element={<Placeholder title="校运会" />} />
+              <Route path="anniversary" element={<Anniversary />} />
+              <Route path="coming-of-age" element={<ComingOfAge />} />
+              <Route path="charity-sale" element={<CharitySale />} />
+              <Route path="may-fourth" element={<MayFourth />} />
+              <Route path="sports-meeting" element={<SportsMeeting />} />
             </Route>
 
             {/* Admissions Routes */}
             <Route path="/admissions" element={<AdmissionsLayout />}>
               <Route index element={<Navigate to="policy" replace />} />
               <Route path="policy" element={<AdmissionsPolicy />} />
-              <Route path="careers" element={<Placeholder title="教师招聘" />} />
+              <Route path="careers" element={<Careers />} />
             </Route>
 
             {/* Alumni Routes */}
@@ -132,7 +143,12 @@ function App() {
               <Route path="card" element={<AlumniCard />} />
             </Route>
 
-            <Route path="/group" element={<Group />} /> {/* 使用 Group 组件替代 Placeholder */}
+            {/* Education Group Routes */}
+            <Route path="/group" element={<Group />}>
+              <Route index element={<GroupLanding />} />
+              <Route path="monan" element={<Monan />} />
+              <Route path="experimental" element={<Experimental />} />
+            </Route>
           </Routes>
         </div>
 

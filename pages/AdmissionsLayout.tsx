@@ -4,12 +4,12 @@ import { Sidebar } from '../components/Sidebar';
 
 export const AdmissionsLayout: React.FC = () => {
   const location = useLocation();
-  
+
   const navItems = [
     { label: '招生专栏', path: '/admissions/policy' },
     { label: '教师招聘', path: '/admissions/careers' },
   ];
-  
+
   const currentItem = navItems.find(item => location.pathname.includes(item.path)) || navItems[0];
 
   return (
@@ -27,11 +27,11 @@ export const AdmissionsLayout: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Sidebar Area */}
           <div className="flex flex-col gap-6 w-full lg:w-72 flex-shrink-0">
-             <Sidebar title="招生招聘" icon="person_add" items={navItems} />
+            <Sidebar title="招生招聘" icon="person_add" items={navItems} />
           </div>
 
           <article className="flex-grow w-full">
-             <Outlet />
+            <Outlet />
           </article>
         </div>
       </div>

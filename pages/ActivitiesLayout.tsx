@@ -4,7 +4,7 @@ import { Sidebar } from '../components/Sidebar';
 
 export const ActivitiesLayout: React.FC = () => {
   const location = useLocation();
-  
+
   const navItems = [
     { label: '一中大讲坛', path: '/activities/lecture' },
     { label: '校庆活动', path: '/activities/anniversary' },
@@ -13,7 +13,7 @@ export const ActivitiesLayout: React.FC = () => {
     { label: '五四合唱', path: '/activities/may-fourth' },
     { label: '校运会', path: '/activities/sports-meeting' },
   ];
-  
+
   const currentItem = navItems.find(item => location.pathname.includes(item.path)) || navItems[0];
 
   return (
@@ -31,7 +31,7 @@ export const ActivitiesLayout: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-12">
           <Sidebar title="校园活动" icon="event" items={navItems} />
           <article className="flex-grow w-full">
-             <Outlet />
+            <Outlet />
           </article>
         </div>
       </div>

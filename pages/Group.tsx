@@ -1,52 +1,45 @@
 import React from 'react';
+import * as ReactRouterDOM from 'react-router-dom';
+import { Sidebar } from '../components/Sidebar';
+
+const { Outlet, useLocation, Link } = ReactRouterDOM as any;
 
 export const Group: React.FC = () => {
+   const location = useLocation();
+
+   const navItems = [
+      { label: '集团概况', path: '/group' },
+      { label: '漠南中学', path: '/group/monan' },
+      { label: '一中实验学校', path: '/group/experimental' },
+   ];
+
+   // Logic to determine active item, handling the exact match for root '/group'
+   const currentItem = navItems.find(item =>
+      item.path === '/group'
+         ? location.pathname === '/group'
+         : location.pathname.includes(item.path)
+   ) || navItems[0];
+
    return (
-      <div className="min-h-screen bg-[#FAF9F7] pt-24 pb-20">
-         <div className="max-w-[1440px] mx-auto px-6 md:px-16 space-y-12 animate-[fadeIn_0.5s_ease-out]">
-
-            {/* Header Section (Simple style as per reference) */}
-            <div className="flex items-baseline gap-3 justify-center">
-               <h1 className="text-4xl font-black text-slate-900 font-serif tracking-tight">教育集团</h1>
-               <p className="text-forest font-bold tracking-[0.2em] uppercase text-sm">EDUCATION GROUP</p>
+      <div className="flex-grow pt-24 pb-20 bg-[#FAF9F7]">
+         <div className="max-w-[1440px] mx-auto px-6 md:px-16">
+            {/* Breadcrumb */}
+            <div className="flex items-center gap-3 text-[15px] text-slate-500 mb-8 select-none animate-[fadeIn_0.5s_ease-out]">
+               <Link to="/" className="hover:text-forest transition-colors">首页</Link>
+               <span className="material-symbols-outlined text-sm text-slate-300">chevron_right</span>
+               <span className="cursor-default">教育集团</span>
+               <span className="material-symbols-outlined text-sm text-slate-300">chevron_right</span>
+               <span className="text-slate-900 font-bold">{currentItem.label}</span>
             </div>
 
-            {/* Cards Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
-               {/* Card 1: Monan Middle School */}
-               <div className="bg-white rounded-[20px] p-10 lg:p-16 flex flex-col items-center text-center shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
-                  <div className="w-48 h-48 lg:w-56 lg:h-56 bg-slate-50 rounded-2xl mb-10 flex items-center justify-center border border-slate-100 overflow-hidden group-hover:border-forest/20 transition-colors">
-                     {/* QR Code Image */}
-                     <img src="/images/erweima2.jpg" alt="高新区漠南中学二维码" className="w-full h-full object-contain p-4" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-700 mb-2">阳江市第一中学教育集团</h3>
-                  <h2 className="text-3xl font-black text-slate-900 mb-8 tracking-tight">高新区漠南中学</h2>
-                  <button className="flex items-center gap-2 text-forest font-bold hover:text-deep-forest transition-colors group/btn">
-                     <span className="material-symbols-outlined text-xl group-hover/btn:scale-110 transition-transform">touch_app</span>
-                     扫码关注
-                  </button>
-               </div>
+            <div className="flex flex-col lg:flex-row gap-12">
+               {/* Sidebar */}
+               <Sidebar title="教育集团" icon="domain" items={navItems} />
 
-               {/* Card 2: Experimental School */}
-               <div className="bg-white rounded-[20px] p-10 lg:p-16 flex flex-col items-center text-center shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-default">
-                  <div className="w-48 h-48 lg:w-56 lg:h-56 bg-slate-50 rounded-2xl mb-10 flex items-center justify-center border border-slate-100 overflow-hidden group-hover:border-forest/20 transition-colors">
-                     {/* QR Code Image */}
-                     <img src="/images/erweima3.jpg" alt="阳江市第一中学实验学校二维码" className="w-full h-full object-contain p-4" />
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-700 mb-2">阳江市第一中学教育集团</h3>
-                  <h2 className="text-3xl font-black text-slate-900 mb-8 tracking-tight">阳江市第一中学实验学校</h2>
-                  <button className="flex items-center gap-2 text-forest font-bold hover:text-deep-forest transition-colors group/btn">
-                     <span className="material-symbols-outlined text-xl group-hover/btn:scale-110 transition-transform">touch_app</span>
-                     扫码关注
-                  </button>
-               </div>
-            </div>
-
-            {/* Description Section */}
-            <div className="bg-[#F5F9FF] border-2 border-dashed border-[#E1EEFA] rounded-2xl p-8 lg:p-12 mt-8">
-               <p className="text-slate-500 text-center leading-loose text-sm lg:text-base font-medium max-w-4xl mx-auto">
-                  阳江市第一中学教育集团以阳江一中为龙头学校，旨在通过资源共享、管理互鉴、师资轮岗等方式，带动成员校共同发展，助力阳江教育高质量发展。
-               </p>
+               {/* Content Area */}
+               <article className="flex-grow w-full">
+                  <Outlet />
+               </article>
             </div>
          </div>
       </div>

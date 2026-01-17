@@ -1,6 +1,8 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
 import { NavItem } from '../types';
+
+const { Link, useLocation } = ReactRouterDOM as any;
 
 interface SidebarProps {
   title: string;
@@ -10,6 +12,30 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ title, icon, items }) => {
   const location = useLocation();
+
+  // Find the "best" active item by finding the longest matching path
+  // This prevents '/group' from being active when we are at '/group/monan'
+  const activePath = items.reduce((best: string, item: NavItem) => {
+    // Check if current location matches item.path (exact or prefix for sub-routes)
+    // We treat it as a match if it's exact, or if it starts with path + '/'
+    // e.g. /group matches /group
+    // e.g. /teaching/news matches /teaching/news/123 (starts with /teaching/news/)
+    // but /group does NOT match /group/monan via simple startsWith unless we handle the slash, 
+    // because we want /group to be a distinct page from /group/monan.
+    
+    const isExact = location.pathname === item.path;
+    const isSubPath = location.pathname.startsWith(item.path + '/');
+    
+    const isMatch = isExact || isSubPath;
+    
+    if (isMatch) {
+      // If we have a match, and it's longer (more specific) than our current best, take it
+      if (!best || item.path.length > best.length) {
+        return item.path;
+      }
+    }
+    return best;
+  }, '');
 
   return (
     <aside className="w-full lg:w-72 flex-shrink-0">
@@ -30,7 +56,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ title, icon, items }) => {
         <div className="bg-white py-4">
           <nav className="flex flex-col">
             {items.map((item) => {
-              const isActive = location.pathname.includes(item.path);
+              const isActive = item.path === activePath;
               return (
                 <Link
                   key={item.path}
